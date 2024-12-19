@@ -51,9 +51,12 @@ While syntax
 (comparison){commands}
 /Other commands
 ```
-See While Example for more information
+See While Example for more information.
+
 Remember: you can't use in the comparison the different timelines.
-Important: in while comparison, you can't use 'I', 'D', 'S', 'R', 'O', 'U', 'G'
+
+Important: in while comparison, you can't use 'I', 'D', 'S', 'R', 'O', 'U', 'G'.
+
 Important: in while comparison, when you write the comparison operator, YOU MUST WRITE A SPACE BEFORE AND AFTER THE OPERATOR!
 
 # Important notes
@@ -62,6 +65,7 @@ When you travel between the universes, you automaticaly go to the timeline 0 of 
 In the while, when you travel throwght universes and timelines, YOU CAN'T CREATE NEW UNIVERSES OR TIMELINES! This should create an exception.
 
 # Implementation
+To interpret the 5D Deadfish with Multiverse Time Travel, you can use the java interpreter, and you just have to have java installed in your computer.
 
 # Example
 
@@ -111,13 +115,4 @@ iii /3 in universe number 1
 /in the execution while universe's number 1 is minor than the universe's number 2, decrement the universe's number 2 value
 
 /Other commands
-```
-
-= Example
-```
-iiiii /the first universe = 5
->ii /the first universe second timeline = 2
-< /came back to the previus timeline
-o=>o /the current universe current timeline (5) become equal to the first universe second timeline (2)
-o /out: 2
 ```
