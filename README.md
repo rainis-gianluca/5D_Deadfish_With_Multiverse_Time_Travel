@@ -1,9 +1,12 @@
 5D Deadfish with Multiverse Time Travel
 ========================================
 # Overview
+The 5D Deadfish with Multiverse Time Travel is a esoteric programming language created by Gianluca Rainis in the 2024.
+It is an interpreted programming language based by the 5D Brainfuck with Multiverse Time Travel, the 5D 5D Brainfuck with Multiverse Time Travel with Multiverse Time Travel, the Deadfish and the 10D Deadfish 7 with Time Travel and a Multiverse.
+The official file extension is .5dd, but the interpreters supports the most file extensions.
+All the codes is free to use, modify and distribute.
 
 # Deadfish Language Features
-
 The 5D Deadfish with Multiverse Time Travel programming language have 18 simple commands.
 
 |cmd| description                                                                               |
@@ -28,47 +31,16 @@ The 5D Deadfish with Multiverse Time Travel programming language have 18 simple 
 | / | start the comment                                                                         |
 | G | output the logic diagramm of the multiverse and the timelines                             |
 
-While
-
-|cmd| description                                                                                |
-|:-:|:-------------------------------------------------------------------------------------------|
-| { | start the while                                                                            |
-| } | end the while                                                                              |
-| ( | start the condition of the while                                                           |
-| ) | end the condition of the while                                                             |
-| == | equal comparison operator                                                                 |
-| != | different comparison operator                                                             |
-| << | minor comparison operator                                                                 |
-| >> | greater comparison operator                                                               |
-| <= | minor or equal comparison operator                                                        |
-| >= | greater or equal comparison operator                                                      |
-| o | read current timeline's current universe's number                                          |
-
-While syntax
-
-```
-/Other commands
-(comparison){commands}
-/Other commands
-```
-See While Example for more information.
-
-Remember: you can't use in the comparison the different timelines.
-
-Important: in while comparison, you can't use 'I', 'D', 'S', 'R', 'O', 'U', 'G'.
-
-Important: in while comparison, when you write the comparison operator, YOU MUST WRITE A SPACE BEFORE AND AFTER THE OPERATOR!
-
 # Important notes
 When you travel between the universes, you automaticaly go to the timeline 0 of the universe.
 
-In the while, when you travel throwght universes and timelines, YOU CAN'T CREATE NEW UNIVERSES OR TIMELINES! This should create an exception.
+If you should travel in a previus timeline or a previus universe, and this universe/timeline doesn't exist, it will be created.
 
 # Implementation
-To interpret the 5D Deadfish with Multiverse Time Travel, you can use the java interpreter, and you just have to have java installed in your computer.
+You can select the interpreter in the programming language that you prefer, and after compile it you just have to give it the location of the .5dd file.
+(It works also with the .txt files)
 
 # Example
-
 Hello World
 ```
 >>> it print "Hello, world!" in numbers
@@ -89,7 +61,7 @@ dddddddddddddddddddddddu
 ```
 
 ```
->>> it print "Hello, world!" in ASCII with different universes
+>>> it print "Hello world!" in ASCII with different universes
 
 iiiiiiiisiiiiiiii[
 iiiiiiiiiisi[
@@ -101,18 +73,51 @@ iiiiiiiiisiiiiii[
 iiiiiiiiiisiiiiiiiiiii[
 iiiiiiiiiisiiiiiiiiiiiiii[
 iiiiiiiiiisiiiiiiii[
-iiiiiiiiiis
+iiiiiiiiiis[
+iiiiiisddd
 U
 ```
 
-While Example
 ```
-iii /3 in universe number 1
-[iiii /4 in universe number 2
-]
+>>> output of the G command (logical scheme)
 
-(o >> [o){d} / in the control see if the current universe's number is bigger than the next universe's number
-/in the execution while universe's number 1 is minor than the universe's number 2, decrement the universe's number 2 value
-
-/Other commands
+|===-4===2===4===0===3===6===0===0===2===|
+|   -3   1   3   4   2   5   1   0   1   |
+|   -2   0   1   3   1   4   1       0   |
+|   -1   81   0   2   0   3   0           |
+|   0   169   3   1       2   0           |
+|===-4===2===4===0===3===6===0===0===2===|
+|   -3   1   3   4   2   5   1   0   1   |
+|   -2   0   1   3   1   4   1       0   |
+|   -1   81   0   2   0   3   0           |
+|   0   169   3   1       2   0           |
+|   -3   1   3   4   2   5   1   0   1   |
+|   -2   0   1   3   1   4   1       0   |
+|   -1   81   0   2   0   3   0           |
+|   0   169   3   1       2   0           |
+|   -2   0   1   3   1   4   1       0   |
+|   -1   81   0   2   0   3   0           |
+|   0   169   3   1       2   0           |
+|   0   169   3   1       2   0           |
+|   0   13   2   0       1   0           |
+|   0   13   2   0       1   0           |
+|   4   12   1   0       0               |
+|   5   11   2   0                       |
+|   4   12   1   0       0               |
+|   5   11   2   0                       |
+|   4   10   1   2                       |
+|   4   10   1   2                       |
+|   3   9   0   1                       |
+|   3   9   0   1                       |
+|   2   8       0                       |
+|   1   7       0                       |
+|   0   6       0                       |
+|       5       0                       |
+|       4       1                       |
+|       4       1                       |
+|       3       0                       |
+|       2       0                       |
+|       1                               |
+|       0                               |
+|=======================================|
 ```
