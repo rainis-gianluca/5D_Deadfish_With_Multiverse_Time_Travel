@@ -40,8 +40,9 @@ If you should travel in a previus timeline or a previus universe, and this unive
 You can select the interpreter in the programming language that you prefer, and after compile it you just have to give it the location of the .5dd file.
 (It works also with the .txt files)
 
+Remember to give to the interpreter the position of the file without the '"'.
+
 # Example
-Hello World
 ```
 >>> it print "Hello, world!" in numbers
 
@@ -81,11 +82,6 @@ U
 ```
 >>> output of the G command (logical scheme)
 
-|===-4===2===4===0===3===6===0===0===2===|
-|   -3   1   3   4   2   5   1   0   1   |
-|   -2   0   1   3   1   4   1       0   |
-|   -1   81   0   2   0   3   0           |
-|   0   169   3   1       2   0           |
 |===-4===2===4===0===3===6===0===0===2===|
 |   -3   1   3   4   2   5   1   0   1   |
 |   -2   0   1   3   1   4   1       0   |
