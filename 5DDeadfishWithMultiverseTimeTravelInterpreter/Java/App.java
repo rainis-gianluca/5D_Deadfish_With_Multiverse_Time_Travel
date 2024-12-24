@@ -6,7 +6,7 @@
  * See the GitHub repository for the other versions of the interpreter
  * The .vscode folder is used to store the settings of the Visual Studio Code editor, you can delete it if you don't use Visual Studio Code
  * The comments in the code are written with the help of GitHub Copilot
- * Last update: 23 December 2024
+ * Last update: 24 December 2024
  */
 
 import java.io.BufferedReader;
@@ -86,9 +86,6 @@ public class App {
     }
 
     public static void mainSwitch(long temp, char character) throws Exception { //Analyze the character
-        String stringConverter; //Variables that will be used to convert the number to a character for the 'u' and 'U' commands
-        char charConverter; //Variables that will be used to convert the number to a character for the 'u' and 'U' commands
-
         switch (character) {
             case 'i': //Increment the current timeline value in the current universe
                 temp = universesAndTimelines.get(currentUniverse).get(currentTimeline);
@@ -140,7 +137,13 @@ public class App {
 
             case 'r': //Square root the current timeline value in the current universe
                 temp = universesAndTimelines.get(currentUniverse).get(currentTimeline);
-                temp = (long)(Math.sqrt(temp));
+
+                if (temp >= 0) {
+                    temp = (long)(Math.sqrt(temp));
+                } else {
+                    throw new Exception("Cannot take the square root of a negative number.");
+                }
+
                 universesAndTimelines.get(currentUniverse).add(currentTimeline, temp);
                 numberTimeLinesUsed.set(currentUniverse, numberTimeLinesUsed.get(currentUniverse)+(long)1);
                 break;
@@ -148,7 +151,13 @@ public class App {
             case 'R': //Square root the current timeline value in all universes
                 for (int i = 0; i < numberUniversesUsed; i++) {
                     temp = universesAndTimelines.get(i).get(currentTimeline);
-                    temp = (long)(Math.sqrt(temp));
+
+                    if (temp >= 0) {
+                        temp = (long)(Math.sqrt(temp));
+                    } else {
+                        throw new Exception("Cannot take the square root of a negative number.");
+                    }
+
                     universesAndTimelines.get(i).add(currentTimeline, temp);
                     numberTimeLinesUsed.set(i, numberTimeLinesUsed.get(i)+(long)1);
                 }
@@ -172,16 +181,20 @@ public class App {
                 break;
 
             case 'u': //Output the current timeline value in the current universe as a character
-                stringConverter = (universesAndTimelines.get(currentUniverse).get(currentTimeline).toString());
-                charConverter = (char) Integer.parseInt(stringConverter);
-                System.out.print(charConverter); //If isn't a character print '', if is bigger than 127 print '?'
+                if (universesAndTimelines.get(currentUniverse).get(currentTimeline) >= 32 && universesAndTimelines.get(currentUniverse).get(currentTimeline) < 127) {
+                    System.out.print((char)Integer.parseInt(universesAndTimelines.get(currentUniverse).get(currentTimeline).toString())); //Print the character
+                } else if(universesAndTimelines.get(currentUniverse).get(currentTimeline) < 0 || universesAndTimelines.get(currentUniverse).get(currentTimeline) > 127) {
+                    System.out.print('?'); // Print '?' if the value is out of the ASCII range
+                }
                 break;
 
             case 'U': //Output the current timeline value in all universes as a character
                 for (int i = 0; i < numberUniversesUsed; i++) {
-                    stringConverter = (universesAndTimelines.get(i).get(currentTimeline).toString());
-                    charConverter = (char) Integer.parseInt(stringConverter);
-                    System.out.print(charConverter); //If isn't a character print '', if is bigger than 127 print '?'
+                    if (universesAndTimelines.get(i).get(currentTimeline) >= 32 && universesAndTimelines.get(i).get(currentTimeline) < 127) {
+                        System.out.print((char)Integer.parseInt(universesAndTimelines.get(i).get(currentTimeline).toString())); //Print the character
+                    } else if(universesAndTimelines.get(i).get(currentTimeline) < 0 || universesAndTimelines.get(i).get(currentTimeline) > 127) {
+                        System.out.print('?'); // Print '?' if the value is out of the ASCII range
+                    }
                 }
                 break;
 
@@ -193,7 +206,7 @@ public class App {
                 controlComment = true;
                 break;
 
-            case '>': //Go to the next timeline
+            case '<': //Go to the previous timeline
                 if ((long) currentTimeline == numberTimeLinesUsed.get(currentUniverse)-1) { //If the timeline doesn't exist create it
                     numberTimeLinesUsed.set(currentUniverse, numberTimeLinesUsed.get(currentUniverse)+(long)1);
                     universesAndTimelines.get(currentUniverse).add(currentTimeline++, (long)0);
@@ -203,7 +216,7 @@ public class App {
                 }
                 break;
 
-            case '<': //Go to the previous timeline
+            case '>': //Go to the next timeline
                 if (currentTimeline != 0) {
                     currentTimeline--;
                 }
