@@ -38,7 +38,7 @@ If you should travel in a previus timeline or a previus universe, and this unive
 
 # Implementation
 You can select the interpreter in the programming language that you prefer, and after compile it you just have to give it the location of the .5dd file.
-(It works also with the .txt files)
+(It works also with the .txt files and with the most common file extensions)
 
 Remember to give to the interpreter the position of the file without the '"'.
 
