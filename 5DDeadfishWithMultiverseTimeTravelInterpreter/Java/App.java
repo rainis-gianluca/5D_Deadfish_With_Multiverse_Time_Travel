@@ -6,7 +6,7 @@
  * See the GitHub repository for the other versions of the interpreter
  * The .vscode folder is used to store the settings of the Visual Studio Code editor, you can delete it if you don't use Visual Studio Code
  * The comments in the code are written with the help of GitHub Copilot
- * Last update: 24 December 2024
+ * Last update: 27 December 2024
  */
 
 import java.io.BufferedReader;
@@ -65,7 +65,12 @@ public class App {
                 System.err.println("ERROR: " + e);
             }
             finally {
-                bufferedReader.close();
+                try {
+                    bufferedReader.close();
+                } catch (Exception e) {
+                    System.err.println("Error in the closing of the file: "+e);
+                    error = true;
+                }
             }
         }
 
