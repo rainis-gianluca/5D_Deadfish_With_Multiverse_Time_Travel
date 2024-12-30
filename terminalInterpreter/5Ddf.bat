@@ -7,8 +7,10 @@
 
 REM Check if the main.exe file exists
 if exist "C:\5DDeadfishCmdInterpreter\dist\main.exe" (
-    C:\5DDeadfishCmdInterpreter\dist\main.exe %1
+    "C:\5DDeadfishCmdInterpreter\dist\main.exe" %1
+) else if exist "C:\Program Files\5DDeadfishCmdInterpreter\dist\main.exe" (
+    "C:\Program Files\5DDeadfishCmdInterpreter\dist\main.exe" %1
 ) else (
-    echo ERROR: main.exe not found in C:\5DDeadfishCmdInterpreter\dist
+    echo ERROR: main.exe not found!
     pause
 )

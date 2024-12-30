@@ -13,20 +13,26 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-REM Get the current directory
+set "installDir=C:\5DDeadfishCmdInterpreter"
+
+REM Get the directory where the script is located
 set "currentDir=%~dp0"
 
+if exist "C:\Program Files" (
+    set "installDir=C:\Program Files\5DDeadfishCmdInterpreter"
+)
+
 REM Check if the directory exists, if not create it
-if not exist "C:\5DDeadfishCmdInterpreter" (
-    mkdir "C:\5DDeadfishCmdInterpreter"
+if not exist "%installDir%" (
+    mkdir "%installDir%"
 )
 
 REM Copy the files to the directory
-xcopy "%currentDir%\*" "C:\5DDeadfishCmdInterpreter\" /E /I /Y
+xcopy "%currentDir%\*" "%installDir%\" /E /I /Y
 
 REM Change the directory to the dist folder
-if exist "C:\5DDeadfishCmdInterpreter\dist" (
-    cd "C:\5DDeadfishCmdInterpreter\dist"
+if exist "%installDir%\dist" (
+    cd "%installDir%\dist"
 ) else (
     echo ERROR: dist folder not found in the specified directory.
     pause
@@ -34,14 +40,14 @@ if exist "C:\5DDeadfishCmdInterpreter\dist" (
 )
 
 REM Add the installation directory to the system PATH if it's not already there
-set "newPath=C:\5DDeadfishCmdInterpreter"
-echo %PATH% | findstr /I /C:"%newPath%" >nul
+set "newPath=%installDir%"
+echo %PATH% | find /I "%newPath%" >nul
 if %errorlevel% neq 0 (
-    setx PATH "%PATH%;%newPath%"
+    setx /M PATH "%newPath%"
     echo Added %newPath% to PATH.
 ) else (
     echo %newPath% is already in the PATH.
 )
 
-echo Installation completed successfully.
+echo Installation completed successfully in %installDir%.
 pause

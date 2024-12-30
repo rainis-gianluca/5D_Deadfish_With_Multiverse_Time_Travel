@@ -13,19 +13,34 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
+if exist "C:\Program Files\5DDeadfishCmdInterpreter" (
+    set "installDir=C:\Program Files\5DDeadfishCmdInterpreter"
+) else if exist "C:\5DDeadfishCmdInterpreter" (
+    set "installDir=C:\5DDeadfishCmdInterpreter"
+) else (
+    echo ERROR: Installation directory not found.
+    pause
+    exit /b
+)
+
 REM Check if the directory exists, if so remove it
-if exist "C:\5DDeadfishCmdInterpreter" (
+if exist "%installDir%" (
     taskkill /F /IM main.exe >nul 2>&1
-    rmdir /S /Q "C:\5DDeadfishCmdInterpreter"
+    rmdir /S /Q "%installDir%"
 )
 
 REM Remove the file from the system path
 if exist "C:\Windows\System32\5Ddf.bat" (
-    taskkill /F /IM 5Ddf.bat >nul 2>&1
     del /Q "C:\Windows\System32\5Ddf.bat"
 )
 
-setx PATH "%PATH:C:\5DDeadfishCmdInterpreter;=%" >nul 2>&1
+set "newPath=%installDir%"
+echo %PATH% | find /I "%newPath%" >nul
+if %errorlevel% neq 0 (
+    echo %newPath% is not in the PATH.
+) else (
+    setx /M PATH "%PATH:%newPath%;=%"
+    echo %newPath% successfully removed from the PATH.
+)
 
-echo Uninstallation completed successfully.
 pause

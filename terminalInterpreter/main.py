@@ -6,7 +6,7 @@ This version of the interpreter support only the .5dd files
 See the GitHub repository for the other versions of the interpreter
 The .exe files are in the dist folder, they are builded with PyInstaller
 The comments in the code are written with the help of GitHub Copilot
-Last update: 28 December 2024
+Last update: 30 December 2024
 """
 
 """
@@ -36,21 +36,23 @@ def main():
     currentDirectory = "" #The current directory
     error = False #If is True the interpreter will stop
     character = ''#The character that will be analyzed
-    parser = argparse.ArgumentParser(description="5D Deadfish with Multiverse Time Travel interpreter") #Create the parser
+    parser = argparse.ArgumentParser(prog="5D Deadfish with Multiverse Time Travel command line interpreter", description="5D Deadfish with Multiverse Time Travel interpreter", usage="5Ddf [-h, --help] [-v, --version] fileName.5dd", epilog="If you want to read more about the 5D Deadfish with Multiverse Time Travel, you can visit https://github.com/rainis-gianluca/5D_Deadfish_With_Multiverse_Time_Travel.git for the official GitHub repository, or https://esolangs.org/wiki/5D_Deadfish_with_Multiverse_Time_Travel for the official Esolangs page of the Programming Language.") #Create the parser
 
     try: #Try to get the file location
         currentDirectory = os.getcwd() #Get the current directory
 
-        parser.add_argument("filename", type=str, help="The name of the file that will be analyzed") #Add the filename argument
+        parser.add_argument("fileName", type=str, help="The name of the file that will be analyzed. It must have the .5dd extension.") #Add the filename argument
+        parser.add_argument('-v', '--version', action='version', version='%(prog)s V1.2') #Add the version argument
+
         arguments = parser.parse_args() #Parse the arguments
 
-        if (arguments.filename == ""):
+        if (arguments.fileName == ""):
             raise Exception("The filename cannot be empty!")
         
-        if (arguments.filename[-4:] != ".5dd"):
+        if (arguments.fileName[-4:] != ".5dd"):
             raise Exception("The file must have the .5dd extension!")
 
-        filename = currentDirectory + "\\" + arguments.filename #Get the filename
+        filename = currentDirectory + "\\" + arguments.fileName #Get the filename
     except Exception as e:
         print("Error in the opening of the file: " + str(e))
         error = True
