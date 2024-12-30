@@ -42,6 +42,14 @@ You can select the interpreter in the programming language that you prefer, and 
 
 Remember to give to the interpreter the position of the file without the '"'.
 
+You can also install the terminal Interpreter. It works just with the Windows OS. You have to save the terminalInterpreter folder wherever you prefear.
+
+IMPORTANT: ALL THE FILES AND FOLDERS IN THE 'terminalInterpreter' FOLDER MUST BE SAVED IN THE SAME DIRECTORY BEFORE START THE INSTALLATION!
+
+To install you have just to exe with Administrator privileges the install.cmd file. It will automaticaly create the "C:\Program Files\5DDeadfishCmdInterpreter" (or the "C:\5DDeadfishCmdInterpreter" if it don't found the "C:\Program Files" folder) and copy ALL THE FILES IN IT'S SAME DIRECTORY (read the "IMPORTANT" point). After it will add the folder to the PATH.
+
+To uninstall you have just to exe with Administrator privileges the uninstall.cmd file. It will automaticaly remove the "C:\Program Files\5DDeadfishCmdInterpreter" (or the "C:\5DDeadfishCmdInterpreter" if it don't found the "C:\Program Files" folder). After it will remove the folder from the PATH. Don't worry, the uninstall.cmd file will auto-remove without generate errors.
+
 # Example
 ```
 >>> it print "Hello, world!" in numbers
