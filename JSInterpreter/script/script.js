@@ -14,7 +14,6 @@ import { interpreter } from './interpreter.js'; // Import the interpreter functi
 
 // Function to run the interpreter with the code from the input field
 function run() {
-    window.alert('DEBUG: the code is running'); // DEBUG: alert to check if the code is running
     let code = document.getElementById('code').value;
     let output = document.getElementById('output');
 
