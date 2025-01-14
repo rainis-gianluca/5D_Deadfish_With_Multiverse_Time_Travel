@@ -13,6 +13,9 @@ Last update: 31 December 2024
 import { interpreter } from './interpreter.js'; // Import the interpreter function from the interpreter.js file
 
 // Function to run the interpreter with the code from the input field
+let runButton = document.getElementById('runButton');
+runButton.addEventListener('click', run);
+
 function run() {
     let code = document.getElementById('code').value;
     let output = document.getElementById('output');
