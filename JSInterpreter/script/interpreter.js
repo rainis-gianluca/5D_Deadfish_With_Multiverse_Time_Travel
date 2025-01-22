@@ -17,13 +17,13 @@ var controlComment = false; //If is true the interpreter is in a comment
 var inputString = ""; //The input string
 var outputString = ""; //The output string
 
-function interpreter(code) {
+export const interpreter = (code) => {
     inputString = code;
 
     main();
 
     return outputString;
-}
+};
 
 function main() {
     let error = false; //If is true the interpreter will stop

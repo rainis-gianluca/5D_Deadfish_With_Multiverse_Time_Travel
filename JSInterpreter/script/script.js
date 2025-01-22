@@ -17,9 +17,9 @@ let runButton = document.getElementById('runButton');
 runButton.addEventListener('click', run);
 
 function run() {
-    let code = document.getElementById('code').value;
+    let codeToInterpret = document.getElementById('code').value;
     let output = document.getElementById('output');
 
     output.innerHTML = '';
-    output.innerHTML += interpreter(code);
+    output.innerHTML += interpreter(codeToInterpret);
 }
